@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Youtube Playlist Viewer</title>
+    <title>Arti's Playlist Viewer</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="center">
-      <h1>Please log in to use the app.</h1>
+      <h1>Welcome to Arti's Playlist Viewer!</h1>
+      Arti's Playlist Viewer is an app that allows you to view playlists you created on youtube, the advantage is that it's much faster than the official youtube ui.
       <a id="login" class="round-button" href="#">(Javascript must be enabled to use the page)</a>
-      <a class="round-button" href="https://github.com/art0007i/YoutubePlaylistViewer/blob/main/PRIVACY_POLICY.md">Privacy Policy</a>
+      <a class="round-button" href="./PRIVACY_POLICY.md">Privacy Policy</a>
       <a id="app_button" href="app.html" class="round-button" style="display:none;">Go to app</a>
     </div>
     <script>
       const loginBtn = document.getElementById("login");
-      loginBtn.innerText = "Log In";
+      loginBtn.innerText = "Log In via Google";
 
       const redirect = new URL("https://accounts.google.com/o/oauth2/v2/auth");
       redirect.searchParams.append("client_id", "912235637111-k5r1lsqnpbrfnap0cnhs7aa3sffbb132.apps.googleusercontent.com")
-      redirect.searchParams.append("redirect_uri", "https://art0007i.github.io/YoutubePlaylistViewer/app.html")
+      redirect.searchParams.append("redirect_uri", "https://art0007i.github.io/ArtisPlaylistViewer/app.html")
       redirect.searchParams.append("response_type", "token")
       redirect.searchParams.append("scope", "https://www.googleapis.com/auth/youtube.readonly")
       // TODO: add CSRF state handling https://developers.google.com/youtube/v3/guides/auth/client-side-web-apps
