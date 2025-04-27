@@ -46,7 +46,7 @@
       async function GetVideos(playlistId, cb) {
         
         const apiUrl = new URL("https://www.googleapis.com/youtube/v3/playlistItems");
-        apiUrl.searchParams.append("part", "snippet")
+        apiUrl.searchParams.append("part", "snippet,contentDetails")
         apiUrl.searchParams.append("playlistId", playlistId)
         apiUrl.searchParams.append("maxResults", "50")
         
@@ -89,7 +89,7 @@
             //clone.querySelector(".views").innerText = // not provided by api
             if("high" in item.snippet.thumbnails) 
               clone.querySelector(".thumb").style["background-image"] = `url(${item.snippet.thumbnails.high.url})`
-            clone.querySelector(".upload-time").innerText = timeAgo(new Date(item.snippet.publishedAt));
+            clone.querySelector(".upload-time").innerText = timeAgo(new Date(item.contentDetails.videoPublishedAt));
             clone.querySelector(".description").innerText = item.snippet.description;
             container.appendChild(clone)
           }
